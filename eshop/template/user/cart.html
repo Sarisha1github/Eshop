@@ -1,0 +1,80 @@
+{% extends 'user/headerfooter.html' %}
+{% block content %}
+
+
+</style>
+<!-- /banner_bottom_agile_info -->
+<div class="page-head_agile_info_w3l">
+		<div class="container">
+			<h3>C<span>art </span></h3>
+			<!--/w3_short-->
+				 <div class="services-breadcrumb">
+						<div class="agile_inner_breadcrumb">
+
+						   <ul class="w3_short">
+								<li><a href="/">Home</a><i>|</i></li>
+								<li>Cart</li>
+							</ul>
+						 </div>
+				</div>
+	   <!--//w3_short-->
+	</div>
+</div>
+   <!--/contact-->
+    
+	 
+   <div class="banner_bottom_agile_info">
+	<div class="container">
+	   <div class="agile-contact-grids">
+				<div class="agile-contact-left">
+					
+					<div class="col-md-12 contact-form">
+						<h4 class="white-w3ls">YOUR CART ITEMS <span></span></h4>
+						<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="color: white;">#</th>
+      <th scope="col" style="color: white;">IMAGE</th>
+      <th scope="col" style="color: white;">PRODUCT NAME</th>
+      <th scope="col" style="color: white;">PRICE</th>
+      <th scope="col" style="color: white;">TOTAL PRICE</th>
+      <th scope="col" style="color: white;">QTY</th>
+      <!-- <th scope="col" style="color: white;">DELETE</th> -->
+      <!-- <th scope="col">Handle</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    	{% for x in query %}
+      <th scope="row" style="color: white;">{{forloop.counter}}</th>
+      <td style="color: white;"><img src="{{x.pid.image.url}}" style="object-fit: contain; width: 100px;
+      height: 100px"></td>
+      <td style="color: white;">{{x.pid.productname}}</td>
+      <td style="color: white;">&#8377;{{x.unitprice}}</td>
+      <td style="color: white;">&#8377;{{x.total}}</td>
+
+      <td style="color: white;">{{x.quantity}}</td>
+       <td style="color: white;"><a href="/delete_cartitem/?id={{x.id}}">delete</a></td>
+
+    </tr>
+    {% endfor %}
+    
+      
+  </tbody>
+
+</table>
+					</div>
+
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+       </div>
+       <br>
+       <h4 class="w3ls" style="text-align: center;"><strong>Total : </strong><span>&#8377;{{gt}}</span></h4>
+	</div>
+ <!--//contact-->
+<!--/grids-->
+
+<!--grids-->
+{% endblock %}	
